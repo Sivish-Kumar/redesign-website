@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>µLearn | Learn in Public. Build Proof of Work.</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Tailwind Configuration for Custom Theme -->
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              200: '#fed7aa',
+              300: '#fdba74',
+              400: '#fb923c',
+              500: '#f97316', // Primary µLearn orange
+              600: '#ea580c',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
+            },
+            dark: {
+              950: '#07090e',
+              900: '#0d1117',
+              850: '#131822',
+              800: '#1a2233',
+              700: '#26334d',
+            }
+          },
+          animation: {
+            'pulse-subtle': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 6s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom scrollbar and glass effects */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #07090e;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #1f293d;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #ea580c;
+    }
+    .glass-card {
+      background: rgba(19, 24, 34, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .glass-nav {
+      background: rgba(7, 9, 14, 0.82);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    }
+    .glow-orange {
+      box-shadow: 0 0 45px -10px rgba(249, 115, 22, 0.35);
+    }
+    .badge-glow {
+      box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+    }
+  </style>
+</head>
+
+<body class="bg-dark-950 text-slate-100 font-sans antialiased selection:bg-brand-500 selection:text-white min-h-screen relative overflow-x-hidden">
+
+  <!-- Ambient background lighting orbs -->
+  <div class="fixed top-0 left-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none -z-10 animate-pulse-subtle"></div>
+  <div class="fixed bottom-10 right-1/4 w-96 h-96 bg-indigo-600/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+  <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-600/5 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+
+  <!-- Top Navigation Bar -->
+  <nav class="sticky top-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-amber-400 flex items-center justify-center font-bold text-2xl text-white shadow-lg shadow-brand-500/30 group-hover:scale-105 transition-transform duration-200">
+            µ
+          </div>
+          <div class="flex flex-col">
+            <span class="text-xl font-extrabold tracking-tight text-white flex items-center gap-1">
+              µLearn <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-400 border border-brand-500/30 font-semibold tracking-wide">3.0</span>
+            </span>
+            <span class="text-[10px] text-slate-400 tracking-wider uppercase font-mono">Peer Learning Culture</span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <div class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
+          <a href="#about" class="hover:text-brand-400 transition-colors">Philosophy</a>
+          <a href="#features" class="hover:text-brand-400 transition-colors">Ecosystem</a>
+          <a href="#interest-groups" class="hover:text-brand-400 transition-colors flex items-center gap-1.5">
+            Interest Groups
+            <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
+          </a>
+          <a href="#karma-calc" class="hover:text-brand-400 transition-colors">Karma Road</a>
+          <a href="#leaderboard" class="hover:text-brand-400 transition-colors">Leaderboard</a>
+          <a href="#campuses" class="hover:text-brand-400 transition-colors">Campuses</a>
+        </div>
+
+        <!-- Action Items: Live Karma Score & Discord CTA -->
+        <div class="flex items-center gap-4">
+          <!-- Mock User Karma status chip -->
+          <div id="userKarmaBadge" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-dark-850 border border-brand-500/30 text-xs font-mono text-amber-300 shadow-inner">
+            <i data-lucide="sparkles" class="w-3.5 h-3.5 text-brand-400"></i>
+            <span>Karma:</span>
+            <span id="navKarmaCount" class="font-bold text-white">1,240 KP</span>
+          </div>
+
+          <!-- Join Community Discord -->
+          <a href="https://discord.gg/mulearn" target="_blank" rel="noopener noreferrer" 
+             class="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-xl bg-gradient-to-r from-brand-500 to-amber-500 text-white font-semibold text-sm hover:from-brand-600 hover:to-amber-600 transition-all shadow-md shadow-brand-500/20 active:scale-95">
+            <i data-lucide="message-square" class="w-4 h-4"></i>
+            <span>Join Discord</span>
+          </a>
+
+          <!-- Mobile Hamburger Toggle -->
+          <button id="mobileMenuBtn" aria-label="Toggle menu" class="lg:hidden p-2 rounded-lg bg-dark-850 text-slate-400 hover:text-white border border-slate-800">
+            <i data-lucide="menu" class="w-6 h-6"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Menu -->
+      <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-800 py-4 space-y-3 pb-6 text-sm">
+        <a href="#about" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Philosophy</a>
+        <a href="#features" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Ecosystem</a>
+        <a href="#interest-groups" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Interest Groups</a>
+        <a href="#karma-calc" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Karma Roadmap</a>
+        <a href="#leaderboard" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Leaderboard</a>
+        <a href="#campuses" class="block px-3 py-2 rounded-lg text-slate-300 hover:bg-dark-850 hover:text-brand-400">Campuses</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="about" class="relative pt-12 pb-20 md:pt-20 md:pb-32 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      
+      <!-- Announcement Pill -->
+      <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs sm:text-sm font-medium mb-8 hover:bg-brand-500/15 transition-colors cursor-pointer">
+        <span class="flex h-2 w-2 rounded-full bg-brand-500"></span>
+        <span>Redesigning µLearn Experience for the Next 100K Learners</span>
+        <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight max-w-5xl mx-auto">
+        Learn in Public. <br class="hidden sm:block" />
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-brand-400 via-amber-300 to-brand-500">
+          Build Proof of Work.
+        </span> <br />
+        Climb Together.
+      </h1>
+
+      <p class="mt-6 text-base sm:text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed font-normal">
+        µLearn connects curious students into decentralized learning circles. Complete real-world micro-tasks, earn verified Karma points, and turn your passions into career-defining proof.
+      </p>
+
+      <!-- CTA Buttons & Interactive Task Prompt -->
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+        <a href="#interest-groups" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-brand-500 to-amber-500 text-white font-bold text-base hover:from-brand-600 hover:to-amber-600 shadow-xl shadow-brand-500/25 transition-all flex items-center justify-center gap-2 group">
+          <span>Explore Interest Groups</span>
+          <i data-lucide="arrow-right" class="w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+        </a>
+        
+        <a href="#karma-calc" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-slate-200 hover:text-white hover:bg-dark-800 border-slate-700/60 font-semibold text-base transition-all flex items-center justify-center gap-2">
+          <i data-lucide="calculator" class="w-5 h-5 text-brand-400"></i>
+          <span>Check Your Level</span>
+        </a>
+      </div>
+
+      <!-- Live Community Metrics Counter -->
+      <div class="mt-16 sm:mt-24 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-5xl mx-auto">
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 text-left relative overflow-hidden group hover:border-brand-500/40 transition-colors">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono">68,400+</div>
+          <div class="text-xs sm:text-sm text-slate-400 mt-1 font-medium flex items-center gap-1.5">
+            <i data-lucide="users" class="w-4 h-4 text-brand-400"></i>
+            Active Learners
+          </div>
+          <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-brand-500/5 rounded-full blur-xl group-hover:bg-brand-500/20 transition-all"></div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 text-left relative overflow-hidden group hover:border-brand-500/40 transition-colors">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono">480+</div>
+          <div class="text-xs sm:text-sm text-slate-400 mt-1 font-medium flex items-center gap-1.5">
+            <i data-lucide="school" class="w-4 h-4 text-amber-400"></i>
+            College Campuses
+          </div>
+          <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-amber-500/5 rounded-full blur-xl group-hover:bg-amber-500/20 transition-all"></div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 text-left relative overflow-hidden group hover:border-brand-500/40 transition-colors">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono">14.8M+</div>
+          <div class="text-xs sm:text-sm text-slate-400 mt-1 font-medium flex items-center gap-1.5">
+            <i data-lucide="award" class="w-4 h-4 text-brand-400"></i>
+            Karma Points Awarded
+          </div>
+          <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-brand-500/5 rounded-full blur-xl group-hover:bg-brand-500/20 transition-all"></div>
+        </div>
+
+        <div class="glass-card p-6 rounded-2xl border border-slate-800/80 text-left relative overflow-hidden group hover:border-brand-500/40 transition-colors">
+          <div class="text-3xl sm:text-4xl font-extrabold text-white font-mono">22+</div>
+          <div class="text-xs sm:text-sm text-slate-400 mt-1 font-medium flex items-center gap-1.5">
+            <i data-lucide="compass" class="w-4 h-4 text-emerald-400"></i>
+            Interest Groups
+          </div>
+          <div class="absolute -right-2 -bottom-2 w-16 h-16 bg-emerald-500/5 rounded-full blur-xl group-hover:bg-emerald-500/20 transition-all"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Bento Ecosystem Section -->
+  <section id="features" class="py-20 relative border-t border-slate-850/60 bg-dark-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+        <div>
+          <span class="text-brand-400 font-mono text-xs tracking-widest uppercase font-semibold">Decentralized Learning Engine</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Engineered for real skills, not certificates</h2>
+        </div>
+        <p class="text-slate-400 max-w-md text-sm">
+          Unlike standard MOOCs, µLearn focuses on verified proof of work, peer code reviews, and micro-circles that push you to ship.
+        </p>
+      </div>
+
+      <!-- Bento Grid Container -->
+      <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+        <!-- Bento Card 1: Interactive Karma Task Simulator (Span 2) -->
+        <div class="md:col-span-2 glass-card rounded-3xl p-7 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-brand-500/10 text-brand-400 text-xs font-mono font-medium">
+                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                Interactive Demo
+              </div>
+              <span class="text-xs text-slate-400">Try completing a task!</span>
+            </div>
+
+            <h3 class="text-2xl font-bold text-white mt-4">Proof-of-Work Karma System</h3>
+            <p class="text-slate-400 text-sm mt-2">
+              Every task you submit on Discord or the portal goes through peer verification. Once validated, your on-chain Karma profile rises.
+            </p>
+
+            <!-- Interactive Task Simulator Box -->
+            <div class="mt-6 bg-dark-950/80 rounded-2xl p-4 border border-slate-800">
+              <div class="flex items-center justify-between text-xs font-mono text-slate-400 pb-3 border-b border-slate-800/80">
+                <span>Task: #ge-website-redesign</span>
+                <span class="text-amber-400 font-bold">+200 KP</span>
+              </div>
+              
+              <div class="py-3 flex items-center justify-between flex-wrap gap-2">
+                <div>
+                  <div class="text-sm font-semibold text-white">Redesign µLearn Frontend</div>
+                  <div class="text-xs text-slate-400">Submit URL in #task-dropbox with screenshot</div>
+                </div>
+                <button id="simulateClaimBtn" class="px-4 py-2 bg-brand-500 hover:bg-brand-600 active:scale-95 text-white text-xs font-bold rounded-xl transition-all shadow-md shadow-brand-500/20 flex items-center gap-1.5">
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                  <span>Simulate Verification</span>
+                </button>
+              </div>
+
+              <!-- Simulator feedback output -->
+              <div id="claimFeedback" class="hidden mt-2 p-2.5 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                <span>Task Verified! +200 Karma Points added to your global rank.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-850 flex items-center justify-between text-xs text-slate-400">
+            <span>Verified by 3 Peer Reviewers</span>
+            <span class="text-brand-400 font-mono">Immutable Log #49281</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 2: Micro Learning Circles -->
+        <div class="glass-card rounded-3xl p-7 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/15 text-indigo-400 flex items-center justify-center mb-4">
+              <i data-lucide="users-2" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">Learning Circles</h3>
+            <p class="text-slate-400 text-sm mt-2">
+              Squads of 3-5 students studying together weekly. Overcome tutorial hell through peer accountability.
+            </p>
+          </div>
+          
+          <div class="mt-6 pt-4 border-t border-slate-800">
+            <div class="flex -space-x-2 overflow-hidden mb-2">
+              <img class="inline-block h-8 w-8 rounded-full ring-2 ring-dark-900" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces" alt="Student" />
+              <img class="inline-block h-8 w-8 rounded-full ring-2 ring-dark-900" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces" alt="Student" />
+              <img class="inline-block h-8 w-8 rounded-full ring-2 ring-dark-900" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=64&h=64&fit=crop&crop=faces" alt="Student" />
+            </div>
+            <span class="text-xs text-indigo-300 font-mono">3,400+ Circles Active</span>
+          </div>
+        </div>
+
+        <!-- Bento Card 3: Hackathons & YIP Bootcamps -->
+        <div class="glass-card rounded-3xl p-7 border border-slate-800 flex flex-col justify-between">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/15 text-amber-400 flex items-center justify-center mb-4">
+              <i data-lucide="rocket" class="w-6 h-6"></i>
+            </div>
+            <h3 class="text-xl font-bold text-white">YIP & Hackathons</h3>
+            <p class="text-slate-400 text-sm mt-2">
+              Direct access to government challenges, Young Innovators Program, and startup incubation grants.
+            </p>
+          </div>
+
+          <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-amber-400 font-bold font-mono">₹2.5Cr+</span>
+            <span class="text-slate-400">Prizes & Grants</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest Groups Section -->
+  <section id="interest-groups" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-brand-400 font-mono text-xs tracking-widest uppercase font-semibold">Specialized Domains</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white mt-2">Find Your Tribe</h2>
+      <p class="text-slate-400 text-base mt-3">
+        From Machine Learning to Game Development, unlock interest group pathways once you hit Level 4 Karma.
+      </p>
+
+      <!-- Category Filter Pills -->
+      <div class="flex items-center justify-center gap-2 mt-8 flex-wrap">
+        <button onclick="filterGroups('all')" class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white shadow-lg shadow-brand-500/20" data-filter="all">All Groups</button>
+        <button onclick="filterGroups('tech')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-dark-850 text-slate-300 hover:text-white border border-slate-800" data-filter="tech">Software & AI</button>
+        <button onclick="filterGroups('core')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-dark-850 text-slate-300 hover:text-white border border-slate-800" data-filter="core">Hardware & IoT</button>
+        <button onclick="filterGroups('creative')" class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-dark-850 text-slate-300 hover:text-white border border-slate-800" data-filter="creative">Design & Creative</button>
+      </div>
+    </div>
+
+    <!-- Cards Grid -->
+    <div id="groupsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Group 1: AI & ML -->
+      <div class="group-card tech glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-orange-500/15 text-orange-400 flex items-center justify-center">
+              <i data-lucide="cpu" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-orange-300 border border-orange-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Artificial Intelligence & ML</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            LLMs, Neural Networks, PyTorch, and deploying models to edge devices. Weekly paper readings and model hack nights.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Lead: Dr. Alex & Community</span>
+          <span class="text-white font-mono font-semibold">12,400 Members</span>
+        </div>
+      </div>
+
+      <!-- Group 2: Web Dev & DevOps -->
+      <div class="group-card tech glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-blue-500/15 text-blue-400 flex items-center justify-center">
+              <i data-lucide="globe" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-blue-300 border border-blue-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Full-Stack & Cloud</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Modern React, Next.js, Rust microservices, Docker, Kubernetes, and open-source contribution roadmaps.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Active Bounties: 42</span>
+          <span class="text-white font-mono font-semibold">18,200 Members</span>
+        </div>
+      </div>
+
+      <!-- Group 3: Cyber Security -->
+      <div class="group-card tech glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-red-500/15 text-red-400 flex items-center justify-center">
+              <i data-lucide="shield-check" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-red-300 border border-red-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Cybersecurity & CTFs</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Binary exploitation, reverse engineering, web security, and competing globally in DEF CON qualifiers.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Weekly CTF Runs</span>
+          <span class="text-white font-mono font-semibold">7,900 Members</span>
+        </div>
+      </div>
+
+      <!-- Group 4: UI/UX & Product Design -->
+      <div class="group-card creative glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-purple-500/15 text-purple-400 flex items-center justify-center">
+              <i data-lucide="palette" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-purple-300 border border-purple-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">UI/UX & Product Design</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Design systems, Figma masterclasses, user psychology, micro-interactions, and portfolio design crits.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Design Jam on Sundays</span>
+          <span class="text-white font-mono font-semibold">9,100 Members</span>
+        </div>
+      </div>
+
+      <!-- Group 5: IoT & Embedded Systems -->
+      <div class="group-card core glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+              <i data-lucide="circuit-board" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-emerald-300 border border-emerald-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">IoT, Robotics & VLSI</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            PCB design on KiCAD, ESP32 microcontrollers, ROS2 robotics, and hardware hackathons supported by Maker Gram.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Makerspace Hubs</span>
+          <span class="text-white font-mono font-semibold">6,300 Members</span>
+        </div>
+      </div>
+
+      <!-- Group 6: Game Dev & 3D -->
+      <div class="group-card creative glass-card p-6 rounded-3xl border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between mb-4">
+            <span class="w-12 h-12 rounded-2xl bg-pink-500/15 text-pink-400 flex items-center justify-center">
+              <i data-lucide="gamepad-2" class="w-6 h-6"></i>
+            </span>
+            <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-dark-850 text-pink-300 border border-pink-500/20">Level 4+</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">Game Dev & Creative Tech</h3>
+          <p class="text-slate-400 text-xs sm:text-sm mt-2 leading-relaxed">
+            Unreal Engine 5, Godot 4, shaders, Blender 3D modeling, and indie game jams with real publishing support.
+          </p>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-850/80 flex items-center justify-between text-xs text-slate-400">
+          <span>Global Game Jam Hub</span>
+          <span class="text-white font-mono font-semibold">5,400 Members</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Karma Calculator & Progression Section -->
+  <section id="karma-calc" class="py-20 bg-dark-900 border-y border-slate-800/80 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Interactive Slider Control -->
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-mono">
+            <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
+            Level Calculator
+          </div>
+          
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">
+            Plan Your Journey from <span class="text-brand-400">Level 1 to Level 7</span>
+          </h2>
+          
+          <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+            µLearn uses a tier-based progression where verified Karma points unlock mentorship rights, specialized Interest Groups, and direct hiring calls.
+          </p>
+
+          <!-- Interactive Slider Box -->
+          <div class="glass-card p-6 rounded-2xl border border-slate-700/60 space-y-5">
+            <div class="flex justify-between items-center">
+              <label for="karmaSlider" class="text-sm font-semibold text-slate-200">Simulate Karma Points (KP):</label>
+              <span id="sliderValueDisplay" class="font-mono text-xl font-extrabold text-brand-400">1,200 KP</span>
+            </div>
+
+            <input 
+              id="karmaSlider" 
+              type="range" 
+              min="0" 
+              max="15000" 
+              step="100" 
+              value="1200" 
+              class="w-full h-2 bg-dark-950 rounded-lg appearance-none cursor-pointer accent-brand-500 focus:outline-none"
+            />
+
+            <div class="flex justify-between text-[11px] font-mono text-slate-500">
+              <span>0 KP (Lvl 1)</span>
+              <span>1.6K (Lvl 4)</span>
+              <span>8K (Lvl 6)</span>
+              <span>12K+ (Lvl 7)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Real-time Level Card Unlocked preview -->
+        <div class="lg:col-span-6">
+          <div id="levelDisplayCard" class="glass-card p-8 rounded-3xl border-2 border-brand-500/60 glow-orange relative overflow-hidden transition-all duration-300">
+            <div class="flex justify-between items-start">
+              <div>
+                <span id="levelBadgeTag" class="text-xs font-mono uppercase tracking-widest text-brand-400 font-bold">Current Tier</span>
+                <h3 id="levelTitle" class="text-3xl font-black text-white mt-1">Level 3: Apprentice Builder</h3>
+                <p id="levelDesc" class="text-slate-300 text-sm mt-2">
+                  Building foundational technical literacy. Ready to unlock specialized interest tracks at 1,600 KP!
+                </p>
+              </div>
+              <div id="levelNumberIcon" class="w-16 h-16 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center font-mono font-black text-3xl border border-brand-500/40">
+                3
+              </div>
+            </div>
+
+            <!-- Unlocks list -->
+            <div class="mt-8 space-y-3">
+              <div class="text-xs font-mono uppercase tracking-wider text-slate-400">Unlocked Privileges:</div>
+              
+              <div id="privilegesList" class="space-y-2 text-sm text-slate-300">
+                <!-- Dynamically injected via script -->
+              </div>
+            </div>
+
+            <!-- Progress Bar to Next Level -->
+            <div class="mt-8 pt-6 border-t border-slate-800">
+              <div class="flex justify-between text-xs font-mono mb-2">
+                <span class="text-slate-400">To Next Level:</span>
+                <span id="nextLevelRemaining" class="text-brand-400 font-bold">400 KP needed</span>
+              </div>
+              <div class="w-full h-2.5 bg-dark-950 rounded-full overflow-hidden">
+                <div id="levelProgressBar" class="h-full bg-gradient-to-r from-brand-500 to-amber-400 rounded-full transition-all duration-300" style="width: 75%;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Leaderboard Section -->
+  <section id="leaderboard" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+      <div>
+        <span class="text-brand-400 font-mono text-xs tracking-widest uppercase font-semibold">Proof of Work Rankings</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Live Karma Leaderboard</h2>
+      </div>
+      
+      <!-- Tab Switcher -->
+      <div class="flex bg-dark-900 p-1.5 rounded-xl border border-slate-800">
+        <button id="tabCollegesBtn" onclick="switchLeaderboard('colleges')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white shadow">
+          Top Campuses
+        </button>
+        <button id="tabLearnersBtn" onclick="switchLeaderboard('learners')" class="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white">
+          Top Builders
+        </button>
+      </div>
+    </div>
+
+    <!-- Table Container -->
+    <div class="glass-card rounded-3xl border border-slate-800 overflow-hidden shadow-2xl">
+      
+      <!-- Colleges Leaderboard -->
+      <div id="collegesTable" class="overflow-x-auto">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-dark-900/90 text-xs font-mono uppercase text-slate-400 border-b border-slate-800">
+            <tr>
+              <th scope="col" class="px-6 py-4">Rank</th>
+              <th scope="col" class="px-6 py-4">Institution</th>
+              <th scope="col" class="px-6 py-4">Zone</th>
+              <th scope="col" class="px-6 py-4">Active Members</th>
+              <th scope="col" class="px-6 py-4 text-right">Total Karma</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-850">
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-amber-400 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-amber-500/20 flex items-center justify-center text-xs">🥇</span>
+                #01
+              </td>
+              <td class="px-6 py-4 font-semibold text-white">Model Engineering College, Thrikkakara</td>
+              <td class="px-6 py-4 text-slate-400 font-mono text-xs">Ernakulam</td>
+              <td class="px-6 py-4 font-mono">1,840</td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">1,248,300 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-slate-300 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-slate-500/20 flex items-center justify-center text-xs">🥈</span>
+                #02
+              </td>
+              <td class="px-6 py-4 font-semibold text-white">College of Engineering Trivandrum (CET)</td>
+              <td class="px-6 py-4 text-slate-400 font-mono text-xs">Trivandrum</td>
+              <td class="px-6 py-4 font-mono">1,620</td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">1,114,800 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-amber-600 flex items-center gap-2">
+                <span class="w-6 h-6 rounded-full bg-amber-700/20 flex items-center justify-center text-xs">🥉</span>
+                #03
+              </td>
+              <td class="px-6 py-4 font-semibold text-white">TKM College of Engineering, Kollam</td>
+              <td class="px-6 py-4 text-slate-400 font-mono text-xs">Kollam</td>
+              <td class="px-6 py-4 font-mono">1,410</td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">986,400 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-medium text-slate-400">#04</td>
+              <td class="px-6 py-4 font-semibold text-white">Government Engineering College, Thrissur</td>
+              <td class="px-6 py-4 text-slate-400 font-mono text-xs">Thrissur</td>
+              <td class="px-6 py-4 font-mono">1,290</td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">894,200 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-medium text-slate-400">#05</td>
+              <td class="px-6 py-4 font-semibold text-white">Muthoot Institute of Technology & Science</td>
+              <td class="px-6 py-4 text-slate-400 font-mono text-xs">Kochi</td>
+              <td class="px-6 py-4 font-mono">1,080</td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">782,100 KP</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Top Learners Leaderboard (Initially Hidden) -->
+      <div id="learnersTable" class="overflow-x-auto hidden">
+        <table class="w-full text-left text-sm text-slate-300">
+          <thead class="bg-dark-900/90 text-xs font-mono uppercase text-slate-400 border-b border-slate-800">
+            <tr>
+              <th scope="col" class="px-6 py-4">Rank</th>
+              <th scope="col" class="px-6 py-4">Learner</th>
+              <th scope="col" class="px-6 py-4">Primary Interest</th>
+              <th scope="col" class="px-6 py-4">Level</th>
+              <th scope="col" class="px-6 py-4 text-right">Karma Points</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-850">
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-amber-400">#01</td>
+              <td class="px-6 py-4 flex items-center gap-3">
+                <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=64&h=64&fit=crop" alt="Dev" />
+                <span class="font-bold text-white">Adithya Krishna</span>
+              </td>
+              <td class="px-6 py-4 text-brand-400 font-mono text-xs">AI / Machine Learning</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded font-mono text-xs">Level 7</span></td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">32,450 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-slate-300">#02</td>
+              <td class="px-6 py-4 flex items-center gap-3">
+                <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=64&h=64&fit=crop" alt="Dev" />
+                <span class="font-bold text-white">Farhana Nazreen</span>
+              </td>
+              <td class="px-6 py-4 text-blue-400 font-mono text-xs">Cloud Architecture</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded font-mono text-xs">Level 7</span></td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">29,180 KP</td>
+            </tr>
+            <tr class="hover:bg-dark-850/50 transition-colors">
+              <td class="px-6 py-4 font-mono font-bold text-amber-600">#03</td>
+              <td class="px-6 py-4 flex items-center gap-3">
+                <img class="w-8 h-8 rounded-full" src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=64&h=64&fit=crop" alt="Dev" />
+                <span class="font-bold text-white">Rahul Menon</span>
+              </td>
+              <td class="px-6 py-4 text-emerald-400 font-mono text-xs">Cyber Security</td>
+              <td class="px-6 py-4"><span class="px-2.5 py-1 bg-brand-500/20 text-brand-300 rounded font-mono text-xs">Level 6</span></td>
+              <td class="px-6 py-4 font-mono font-bold text-right text-brand-400">24,700 KP</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Campus Chapters Section -->
+  <section id="campuses" class="py-20 bg-dark-900/50 border-t border-slate-850">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-brand-400 font-mono text-xs tracking-widest uppercase font-semibold">Decentralized Movement</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1">Find Your College Chapter</h2>
+        <p class="text-slate-400 text-sm mt-2">Join an existing campus club or apply to become a Campus Lead.</p>
+
+        <!-- Search Bar -->
+        <div class="mt-6 relative max-w-md mx-auto">
+          <i data-lucide="search" class="w-5 h-5 text-slate-500 absolute left-4 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="campusSearchInput" 
+            placeholder="Search college by name or district..." 
+            class="w-full pl-12 pr-4 py-3 rounded-2xl bg-dark-950 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-brand-500 transition-colors text-sm"
+          />
+        </div>
+      </div>
+
+      <!-- Campus Grid -->
+      <div id="campusGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <div class="campus-item glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-500/30 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded">Tier 1 Chapter</span>
+            <span class="text-xs text-slate-400">Ernakulam</span>
+          </div>
+          <h4 class="font-bold text-white text-lg mt-3">Model Engineering College</h4>
+          <p class="text-slate-400 text-xs mt-1">1,840 Enrolled Learners • 42 Learning Circles</p>
+          <div class="mt-4 pt-4 border-t border-slate-850 flex justify-between items-center text-xs">
+            <span class="text-emerald-400 font-semibold">● Active Discord Hub</span>
+            <a href="#" class="text-brand-400 hover:underline">View Lead &rarr;</a>
+          </div>
+        </div>
+
+        <div class="campus-item glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-500/30 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded">Tier 1 Chapter</span>
+            <span class="text-xs text-slate-400">Trivandrum</span>
+          </div>
+          <h4 class="font-bold text-white text-lg mt-3">College of Engineering Trivandrum</h4>
+          <p class="text-slate-400 text-xs mt-1">1,620 Enrolled Learners • 36 Learning Circles</p>
+          <div class="mt-4 pt-4 border-t border-slate-850 flex justify-between items-center text-xs">
+            <span class="text-emerald-400 font-semibold">● Active Discord Hub</span>
+            <a href="#" class="text-brand-400 hover:underline">View Lead &rarr;</a>
+          </div>
+        </div>
+
+        <div class="campus-item glass-card p-6 rounded-2xl border border-slate-800 hover:border-brand-500/30 transition-all">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-mono text-brand-400 bg-brand-500/10 px-2 py-0.5 rounded">Tier 1 Chapter</span>
+            <span class="text-xs text-slate-400">Kollam</span>
+          </div>
+          <h4 class="font-bold text-white text-lg mt-3">TKM College of Engineering</h4>
+          <p class="text-slate-400 text-xs mt-1">1,410 Enrolled Learners • 28 Learning Circles</p>
+          <div class="mt-4 pt-4 border-t border-slate-850 flex justify-between items-center text-xs">
+            <span class="text-emerald-400 font-semibold">● Active Discord Hub</span>
+            <a href="#" class="text-brand-400 hover:underline">View Lead &rarr;</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Call To Action Banner -->
+  <section class="py-16 relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-gradient-to-r from-brand-600 via-brand-500 to-amber-500 p-8 sm:p-14 text-center text-white relative overflow-hidden shadow-2xl shadow-brand-500/20">
+        <div class="relative z-10 max-w-2xl mx-auto space-y-4">
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Ready to build your verifiable proof of work?</h2>
+          <p class="text-white/90 text-sm sm:text-base">Join 68,000+ students stepping out of textbook syllabus to ship code, hardware, and creative products.</p>
+          <div class="pt-4">
+            <a href="https://discord.gg/mulearn" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-4 bg-dark-950 hover:bg-black text-white font-bold rounded-2xl transition-all shadow-lg active:scale-95">
+              <i data-lucide="message-square" class="w-5 h-5 text-brand-400"></i>
+              <span>Enter µLearn Community Discord</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-850 bg-dark-950 py-16 text-slate-400 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
+        
+        <!-- Brand identity -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-600 to-amber-400 flex items-center justify-center font-bold text-lg text-white">
+              µ
+            </div>
+            <span class="text-lg font-bold text-white tracking-tight">µLearn Foundation</span>
+          </div>
+          <p class="text-xs text-slate-500 leading-relaxed max-w-sm">
+            A non-profit open education collective empowered by GTech and industry pioneers to build peer-driven learning cultures across India.
+          </p>
+          <div class="pt-2">
+            <span class="inline-block px-3 py-1 rounded bg-brand-500/10 text-brand-400 font-mono text-xs border border-brand-500/20">
+              Submission for #ge-website-redesign
+            </span>
+          </div>
+        </div>
+
+        <!-- Links Column 1 -->
+        <div>
+          <h4 class="text-white font-semibold text-xs font-mono uppercase tracking-wider mb-4">Ecosystem</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#interest-groups" class="hover:text-brand-400 transition-colors">Interest Groups</a></li>
+            <li><a href="#karma-calc" class="hover:text-brand-400 transition-colors">Karma Economy</a></li>
+            <li><a href="#leaderboard" class="hover:text-brand-400 transition-colors">Leaderboard</a></li>
+            <li><a href="#campuses" class="hover:text-brand-400 transition-colors">Campus Chapters</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Column 2 -->
+        <div>
+          <h4 class="text-white font-semibold text-xs font-mono uppercase tracking-wider mb-4">Initiatives</h4>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#" class="hover:text-brand-400 transition-colors">Young Innovators Program</a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors">Maker Gram Hubs</a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors">µLearn Open Source</a></li>
+            <li><a href="#" class="hover:text-brand-400 transition-colors">Bootcamps</a></li>
+          </ul>
+        </div>
+
+        <!-- Links Column 3 -->
+        <div>
+          <h4 class="text-white font-semibold text-xs font-mono uppercase tracking-wider mb-4">Connect</h4>
+          <div class="flex gap-3 mt-1">
+            <a href="https://github.com/gtech-mulearn" target="_blank" class="w-8 h-8 rounded-lg bg-dark-850 flex items-center justify-center hover:text-white border border-slate-800 transition-colors">
+              <i data-lucide="github" class="w-4 h-4"></i>
+            </a>
+            <a href="https://twitter.com/gtech_mulearn" target="_blank" class="w-8 h-8 rounded-lg bg-dark-850 flex items-center justify-center hover:text-white border border-slate-800 transition-colors">
+              <i data-lucide="twitter" class="w-4 h-4"></i>
+            </a>
+            <a href="https://linkedin.com/company/mulearn" target="_blank" class="w-8 h-8 rounded-lg bg-dark-850 flex items-center justify-center hover:text-white border border-slate-800 transition-colors">
+              <i data-lucide="linkedin" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-4">support@mulearn.org</p>
+        </div>
+
+      </div>
+
+      <!-- Copyright -->
+      <div class="pt-8 border-t border-slate-850 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <div>© 2026 µLearn Foundation. Designed with care for curious builders.</div>
+        <div class="font-mono text-slate-400">Original target: mulearn.org</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Lucide Icons
+    document.addEventListener("DOMContentLoaded", () => {
+      lucide.createIcons();
+      initKarmaCalculator();
+      initCampusSearch();
+    });
+
+    // Mobile Navbar Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Interactive Task Claim Simulator
+    const claimBtn = document.getElementById('simulateClaimBtn');
+    const claimFeedback = document.getElementById('claimFeedback');
+    const navKarmaCount = document.getElementById('navKarmaCount');
+    let currentKarma = 1240;
+
+    claimBtn.addEventListener('click', () => {
+      currentKarma += 200;
+      navKarmaCount.innerText = `${currentKarma.toLocaleString()} KP`;
+      claimFeedback.classList.remove('hidden');
+      claimBtn.disabled = true;
+      claimBtn.classList.add('opacity-50', 'cursor-not-allowed');
+      claimBtn.innerHTML = '<i data-lucide="check" class="w-4 h-4"></i> Verified';
+      lucide.createIcons();
+    });
+
+    // Interest Group Filtering
+    function filterGroups(category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        if (btn.getAttribute('data-filter') === category) {
+          btn.className = "filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white shadow-lg shadow-brand-500/20";
+        } else {
+          btn.className = "filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-dark-850 text-slate-300 hover:text-white border border-slate-800";
+        }
+      });
+
+      const cards = document.querySelectorAll('.group-card');
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+
+    // Karma Level Progression Calculator
+    const tiers = [
+      { level: 1, name: "Seeker", min: 0, max: 200, privileges: ["Access to general Discord lounges", "Join open community AMA sessions"] },
+      { level: 2, name: "Explorer", min: 200, max: 800, privileges: ["Create peer micro learning circles", "Post introductions in #task-dropbox"] },
+      { level: 3, name: "Apprentice Builder", min: 800, max: 1600, privileges: ["Eligible for micro-bounty assignments", "Access to community learning roadmaps"] },
+      { level: 4, name: "Domain Specialist", min: 1600, max: 4000, privileges: ["🔓 Unlocks all Specialized Interest Groups (AI, Web, IoT)", "Vote on weekly curriculum proposals"] },
+      { level: 5, name: "Mentor & Fellow", min: 4000, max: 8000, privileges: ["Evaluate junior task submissions", "Direct recruiter radar and industry introductions"] },
+      { level: 6, name: "Guild Master", min: 8000, max: 12000, privileges: ["Lead a campus chapter or interest group domain", "Access to seed funding incubation grants"] },
+      { level: 7, name: "Legendary Pioneer", min: 12000, max: 25000, privileges: ["Lifetime honorary membership", "Keynote speaker opportunities at national summits"] },
+    ];
+
+    function initKarmaCalculator() {
+      const slider = document.getElementById('karmaSlider');
+      const valDisplay = document.getElementById('sliderValueDisplay');
+      const title = document.getElementById('levelTitle');
+      const desc = document.getElementById('levelDesc');
+      const numIcon = document.getElementById('levelNumberIcon');
+      const privContainer = document.getElementById('privilegesList');
+      const remainingDisplay = document.getElementById('nextLevelRemaining');
+      const progressBar = document.getElementById('levelProgressBar');
+
+      function update(val) {
+        valDisplay.innerText = `${Number(val).toLocaleString()} KP`;
+        
+        let activeTier = tiers[0];
+        for (let i = 0; i < tiers.length; i++) {
+          if (val >= tiers[i].min) {
+            activeTier = tiers[i];
+          }
+        }
+
+        title.innerText = `Level ${activeTier.level}: ${activeTier.name}`;
+        numIcon.innerText = activeTier.level;
+
+        // Render privileges
+        privContainer.innerHTML = activeTier.privileges.map(p => `
+          <div class="flex items-center gap-2">
+            <span class="w-1.5 h-1.5 rounded-full bg-brand-400"></span>
+            <span>${p}</span>
+          </div>
+        `).join('');
+
+        // Calculate progress to next level
+        if (activeTier.level < 7) {
+          const nextTier = tiers.find(t => t.level === activeTier.level + 1);
+          const diff = nextTier.min - val;
+          remainingDisplay.innerText = `${Math.max(0, diff).toLocaleString()} KP needed for Level ${nextTier.level}`;
+          
+          const progressPercent = Math.min(100, Math.max(5, ((val - activeTier.min) / (activeTier.max - activeTier.min)) * 100));
+          progressBar.style.width = `${progressPercent}%`;
+        } else {
+          remainingDisplay.innerText = `Max Tier Achieved!`;
+          progressBar.style.width = `100%`;
+        }
+      }
+
+      slider.addEventListener('input', (e) => update(e.target.value));
+      update(slider.value);
+    }
+
+    // Leaderboard Tabs Switcher
+    function switchLeaderboard(type) {
+      const colBtn = document.getElementById('tabCollegesBtn');
+      const lrnBtn = document.getElementById('tabLearnersBtn');
+      const colTable = document.getElementById('collegesTable');
+      const lrnTable = document.getElementById('learnersTable');
+
+      if (type === 'colleges') {
+        colBtn.className = "px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white shadow";
+        lrnBtn.className = "px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white";
+        colTable.classList.remove('hidden');
+        lrnTable.classList.add('hidden');
+      } else {
+        lrnBtn.className = "px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white shadow";
+        colBtn.className = "px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all text-slate-400 hover:text-white";
+        lrnTable.classList.remove('hidden');
+        colTable.classList.add('hidden');
+      }
+    }
+
+    // Search colleges filter
+    function initCampusSearch() {
+      const searchInput = document.getElementById('campusSearchInput');
+      const cards = document.querySelectorAll('.campus-item');
+
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        cards.forEach(card => {
+          const text = card.innerText.toLowerCase();
+          if (text.includes(query)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    }
+  </script>
+
+</body>
+</html>
