@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -58,7 +58,7 @@
         <a href="#pillars" class="hover:text-brand-400 transition-colors">Pillars</a>
         <a href="#groups" class="hover:text-brand-400 transition-colors">Interest Groups</a>
         <a href="#journey" class="hover:text-brand-400 transition-colors">How It Works</a>
-        <a href="#leaderboard" class="hover:text-brand-400 transition-colors">Campuses</a>
+        <a href="#leaderboard" class="hover:text-brand-400 transition-colors font-semibold text-brand-400">Leaderboard</a>
       </nav>
 
       <!-- Discord CTA Link -->
@@ -68,7 +68,7 @@
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028z"/>
           </svg>
-          <span>Join Discord</span>
+          <span>Join Community</span>
         </a>
       </div>
     </div>
@@ -80,21 +80,452 @@
       
       <!-- Tag badge -->
       <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900 border border-zinc-800 text-brand-400 text-xs font-medium mb-6">
-        <span class="w-2 h-2 rounded-full bg-brand-500"></span>
-        <span>Kerala's Largest Peer-Led Learning Network</span>
+        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+        <span>Kerala's Largest Peer-Led Tech Community</span>
       </div>
 
       <!-- Main Headline -->
       <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight max-w-4xl mx-auto">
         Learn in Public. <br />
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-amber-300">
-          Build the Future.
+          Build Proof of Work.
         </span>
       </h1>
 
       <p class="mt-6 text-base sm:text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-        Say goodbye to passive video tutorials. µLearn brings learners together into self-driven learning circles to complete hands-on micro-tasks, earn Karma points, and prove their craft.
+        Step beyond passive tutorials. µLearn connects ambitious students into self-driven learning circles to build projects, solve challenges, earn Karma points, and stand out.
       </p>
 
       <!-- Action Buttons -->
-      <div
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a href="#leaderboard" class="px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-base transition-all shadow-lg shadow-brand-500/25">
+          View MBCET on Leaderboard
+        </a>
+        <a href="#groups" class="px-7 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-zinc-200 font-semibold text-base transition-all">
+          Explore Interest Groups
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto pt-10 border-t border-zinc-900">
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">45,000+</div>
+          <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider mt-1">Student Learners</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-brand-400">180+</div>
+          <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider mt-1">Campus Chapters</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-white">2.4M+</div>
+          <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider mt-1">Karma Awarded</div>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-extrabold text-amber-400">40+</div>
+          <div class="text-xs sm:text-sm text-zinc-500 uppercase tracking-wider mt-1">Interest Groups</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Pillars Bento Grid -->
+  <section id="pillars" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">The µLearn Learning Ecosystem</h2>
+      <p class="mt-4 text-zinc-400">A community framework designed to move you from curious beginner to industry-ready engineer.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
+        <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-orange-500/20 text-brand-400 flex items-center justify-center text-xl font-bold mb-6">
+          ⭕
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Learning Circles</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Small peer study squads consisting of 4–6 students. Learn specific stacks together, hold daily syncs, and review each other's code.
+        </p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="p-8 rounded-2xl bg-zinc-900/50 border border-brand-500/30 bg-gradient-to-b from-brand-950/20 to-zinc-900/50 transition-colors relative">
+        <span class="absolute top-4 right-4 text-[10px] font-mono uppercase tracking-widest text-brand-400 bg-brand-500/10 px-2 py-1 rounded-md border border-brand-500/20">Gamified</span>
+        <div class="w-12 h-12 rounded-xl bg-brand-500/20 border border-brand-500/30 text-amber-400 flex items-center justify-center text-xl font-bold mb-6">
+          ⭐
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Karma Engine</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Proof-of-work gamified. Earn verified Karma points by solving challenges, contributing to open-source, and mentoring others.
+        </p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="p-8 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
+        <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center text-xl font-bold mb-6">
+          🏛️
+        </div>
+        <h3 class="text-xl font-semibold text-white mb-2">Campus Chapters</h3>
+        <p class="text-zinc-400 text-sm leading-relaxed">
+          Student-run chapters across Kerala institutions driving local workshops, hackathons, and collective campus leaderboards.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- College Leaderboard Section -->
+  <section id="leaderboard" class="py-20 md:py-28 bg-zinc-900/40 border-y border-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          Statewide Standings
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Top Campus Leaderboard</h2>
+        <p class="mt-3 text-zinc-400 text-sm sm:text-base">Real-time ranking of colleges based on total Karma points accumulated by student builders.</p>
+      </div>
+
+      <!-- Table Container -->
+      <div class="overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-950/80 shadow-2xl">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-zinc-900/90 text-zinc-400 uppercase text-[11px] tracking-wider border-b border-zinc-800">
+              <tr>
+                <th scope="col" class="py-4 px-6">Rank</th>
+                <th scope="col" class="py-4 px-6">Institution</th>
+                <th scope="col" class="py-4 px-6 text-center">Active Builders</th>
+                <th scope="col" class="py-4 px-6 text-right">Total Karma</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-zinc-800/60 font-medium">
+              
+              <!-- RANK 1: MBCET -->
+              <tr class="bg-gradient-to-r from-brand-950/40 via-amber-950/20 to-transparent border-l-4 border-l-brand-500 hover:bg-zinc-900/40 transition-colors">
+                <td class="py-5 px-6 whitespace-nowrap">
+                  <div class="flex items-center gap-2">
+                    <span class="w-7 h-7 rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/30 flex items-center justify-center font-bold text-xs">#1</span>
+                    <span class="text-amber-400 text-base">👑</span>
+                  </div>
+                </td>
+                <td class="py-5 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-brand-500 text-white font-bold flex items-center justify-center text-sm shadow-md shadow-brand-500/30 flex-shrink-0">
+                      MBCET
+                    </div>
+                    <div>
+                      <div class="text-white font-semibold text-base flex items-center gap-2 flex-wrap">
+                        Mar Baselios College of Engineering and Technology (MBCET)
+                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-brand-500/20 text-brand-300 border border-brand-500/30">Top Campus</span>
+                      </div>
+                      <div class="text-xs text-zinc-400 mt-0.5">Thiruvananthapuram, Kerala</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-5 px-6 text-center whitespace-nowrap text-zinc-200">
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono">1,420 Students</span>
+                </td>
+                <td class="py-5 px-6 text-right whitespace-nowrap">
+                  <span class="text-brand-400 font-extrabold text-base font-mono">248,500</span>
+                  <span class="text-zinc-500 text-xs ml-1 font-mono">KP</span>
+                </td>
+              </tr>
+
+              <!-- RANK 2 -->
+              <tr class="hover:bg-zinc-900/30 transition-colors">
+                <td class="py-5 px-6 whitespace-nowrap">
+                  <span class="w-7 h-7 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-xs">#2</span>
+                </td>
+                <td class="py-5 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-zinc-800 text-zinc-300 font-bold flex items-center justify-center text-xs flex-shrink-0">
+                      GECB
+                    </div>
+                    <div>
+                      <div class="text-zinc-200 font-semibold">Government Engineering College Barton Hill</div>
+                      <div class="text-xs text-zinc-400 mt-0.5">Thiruvananthapuram, Kerala</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-5 px-6 text-center whitespace-nowrap text-zinc-300">
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono">1,180 Students</span>
+                </td>
+                <td class="py-5 px-6 text-right whitespace-nowrap">
+                  <span class="text-zinc-200 font-bold font-mono">212,300</span>
+                  <span class="text-zinc-500 text-xs ml-1 font-mono">KP</span>
+                </td>
+              </tr>
+
+              <!-- RANK 3 -->
+              <tr class="hover:bg-zinc-900/30 transition-colors">
+                <td class="py-5 px-6 whitespace-nowrap">
+                  <span class="w-7 h-7 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-xs">#3</span>
+                </td>
+                <td class="py-5 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-zinc-800 text-zinc-300 font-bold flex items-center justify-center text-xs flex-shrink-0">
+                      MEC
+                    </div>
+                    <div>
+                      <div class="text-zinc-200 font-semibold">Govt. Model Engineering College (MEC)</div>
+                      <div class="text-xs text-zinc-400 mt-0.5">Ernakulam, Kerala</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-5 px-6 text-center whitespace-nowrap text-zinc-300">
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono">1,050 Students</span>
+                </td>
+                <td class="py-5 px-6 text-right whitespace-nowrap">
+                  <span class="text-zinc-200 font-bold font-mono">198,750</span>
+                  <span class="text-zinc-500 text-xs ml-1 font-mono">KP</span>
+                </td>
+              </tr>
+
+              <!-- RANK 4 -->
+              <tr class="hover:bg-zinc-900/30 transition-colors">
+                <td class="py-5 px-6 whitespace-nowrap">
+                  <span class="w-7 h-7 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-xs">#4</span>
+                </td>
+                <td class="py-5 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-zinc-800 text-zinc-300 font-bold flex items-center justify-center text-xs flex-shrink-0">
+                      TKM
+                    </div>
+                    <div>
+                      <div class="text-zinc-200 font-semibold">TKM College of Engineering</div>
+                      <div class="text-xs text-zinc-400 mt-0.5">Kollam, Kerala</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-5 px-6 text-center whitespace-nowrap text-zinc-300">
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono">920 Students</span>
+                </td>
+                <td class="py-5 px-6 text-right whitespace-nowrap">
+                  <span class="text-zinc-200 font-bold font-mono">176,400</span>
+                  <span class="text-zinc-500 text-xs ml-1 font-mono">KP</span>
+                </td>
+              </tr>
+
+              <!-- RANK 5 -->
+              <tr class="hover:bg-zinc-900/30 transition-colors">
+                <td class="py-5 px-6 whitespace-nowrap">
+                  <span class="w-7 h-7 rounded-full bg-zinc-800 text-zinc-300 flex items-center justify-center font-bold text-xs">#5</span>
+                </td>
+                <td class="py-5 px-6">
+                  <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-zinc-800 text-zinc-300 font-bold flex items-center justify-center text-xs flex-shrink-0">
+                      CET
+                    </div>
+                    <div>
+                      <div class="text-zinc-200 font-semibold">College of Engineering Trivandrum (CET)</div>
+                      <div class="text-xs text-zinc-400 mt-0.5">Thiruvananthapuram, Kerala</div>
+                    </div>
+                  </div>
+                </td>
+                <td class="py-5 px-6 text-center whitespace-nowrap text-zinc-300">
+                  <span class="px-2.5 py-1 rounded-md bg-zinc-900 border border-zinc-800 text-xs font-mono">890 Students</span>
+                </td>
+                <td class="py-5 px-6 text-right whitespace-nowrap">
+                  <span class="text-zinc-200 font-bold font-mono">164,120</span>
+                  <span class="text-zinc-500 text-xs ml-1 font-mono">KP</span>
+                </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interest Groups Grid -->
+  <section id="groups" class="py-20 md:py-28 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-14">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          Specialized Domains
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">Active Interest Groups</h2>
+      </div>
+      <p class="mt-4 md:mt-0 text-zinc-400 text-sm max-w-md">
+        Join micro-communities built around your favorite technical domain, led by industry mentors.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Group 1 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-mono">Web3 & Tech</span>
+          <span class="text-xs text-zinc-400">4,200+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Web Development</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          Frontend, Backend, and Fullstack technologies. Learn HTML, Tailwind, React, Node.js, and modern system architectures.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>Weekly micro-challenges</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+      <!-- Group 2 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-400 border border-purple-500/20 text-xs font-mono">Machine Learning</span>
+          <span class="text-xs text-zinc-400">3,850+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">AI & Data Science</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          Explore PyTorch, LLMs, computer vision, data analysis, and predictive modeling through real-world Kaggle-style projects.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>Bi-weekly hackathons</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+      <!-- Group 3 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-mono">Embedded</span>
+          <span class="text-xs text-zinc-400">2,100+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">IoT & Robotics</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          Hardware tinkering, ESP32 microcontrollers, Arduino prototyping, sensor telemetry, and automation projects.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>Hands-on lab kits</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+      <!-- Group 4 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-red-500/10 text-red-400 border border-red-500/20 text-xs font-mono">Infosec</span>
+          <span class="text-xs text-zinc-400">2,600+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">Cyber Security</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          CTF competitions, ethical hacking practices, vulnerability discovery, network defense, and cryptography basics.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>CTF drills & workshops</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+      <!-- Group 5 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-pink-500/10 text-pink-400 border border-pink-500/20 text-xs font-mono">Creative</span>
+          <span class="text-xs text-zinc-400">2,400+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">UI/UX & Product Design</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          Master Figma wireframing, design thinking principles, accessibility standards, and interaction prototyping.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>Portfolio teardowns</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+      <!-- Group 6 -->
+      <div class="p-6 rounded-2xl bg-zinc-900/40 border border-zinc-800 hover:border-zinc-700 transition-all">
+        <div class="flex items-center justify-between mb-4">
+          <span class="px-2.5 py-1 rounded-md bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-mono">Cloud</span>
+          <span class="text-xs text-zinc-400">1,900+ members</span>
+        </div>
+        <h3 class="text-lg font-bold text-white mb-2">DevOps & Cloud Ops</h3>
+        <p class="text-zinc-400 text-xs leading-relaxed mb-6">
+          Containers, Docker, Kubernetes, CI/CD pipelines, and cloud deployments on AWS and Azure cloud platforms.
+        </p>
+        <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between text-xs text-zinc-400">
+          <span>Live infrastructure setups</span>
+          <span class="text-brand-400 font-medium">Join Group →</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The 4-Step Journey -->
+  <section id="journey" class="py-20 md:py-28 bg-zinc-900/20 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-brand-400 text-xs font-semibold uppercase tracking-wider mb-3">
+          Roadmap
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">How µLearn Works</h2>
+        <p class="mt-3 text-zinc-400 text-sm sm:text-base">Four simple steps from opening your first task to building an undeniable portfolio.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+        
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 relative">
+          <span class="text-3xl font-extrabold text-zinc-800">01</span>
+          <h3 class="text-base font-bold text-white mt-4 mb-2">Join a Chapter</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Connect to your campus chapter (e.g. MBCET) or join statewide interest groups on Discord.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 relative">
+          <span class="text-3xl font-extrabold text-zinc-800">02</span>
+          <h3 class="text-base font-bold text-white mt-4 mb-2">Form Learning Circles</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Gather with 3–5 peers with shared technical goals to track progress and hold study check-ins.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-brand-500/30 relative">
+          <span class="text-3xl font-extrabold text-brand-500/50">03</span>
+          <h3 class="text-base font-bold text-white mt-4 mb-2">Submit Micro-Tasks</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Submit public proof of work (GitHub repos, blog writeups, demo links) to the task dropbox.
+          </p>
+        </div>
+
+        <div class="p-6 rounded-2xl bg-zinc-950 border border-zinc-800 relative">
+          <span class="text-3xl font-extrabold text-zinc-800">04</span>
+          <h3 class="text-base font-bold text-white mt-4 mb-2">Earn Verified Karma</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Accumulate points to level up, climb campus leaderboards, and unlock company hiring drives.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800/80 bg-zinc-950 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-lg bg-brand-500 flex items-center justify-center font-bold text-white text-lg">µ</div>
+        <span class="text-sm font-semibold text-zinc-300">µLearn Kerala Redesign</span>
+        <span class="text-xs text-zinc-500 font-mono">#ge-website-redesign</span>
+      </div>
+
+      <div class="flex items-center gap-6 text-xs text-zinc-400">
+        <a href="#about" class="hover:text-brand-400 transition-colors">Home</a>
+        <a href="#leaderboard" class="hover:text-brand-400 transition-colors">MBCET Ranking</a>
+        <a href="#groups" class="hover:text-brand-400 transition-colors">Interest Groups</a>
+        <a href="https://mulearn.org" target="_blank" rel="noopener noreferrer" class="hover:text-brand-400 transition-colors">Original Site</a>
+      </div>
+
+      <div class="text-xs text-zinc-500">
+        Redesigned for the µLearn Web Challenge (200 Karma Points)
+      </div>
+
+    </div>
+  </footer>
+
+</body>
+</html>
