@@ -3,202 +3,344 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>µLearn | Discover, Build, and Earn Karma</title>
+  <title>µLearn — a GTech Initiative</title>
+  <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <!-- Space Grotesk & Lexend Mega Fonts for Neo-Brutalist look -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@700;900&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
   <style>
     body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Space Grotesk', sans-serif;
+      background-color: #fef08a; /* Neo-brutalist warm electric canvas */
+      background-image: radial-gradient(#000000 1px, transparent 1px);
+      background-size: 24px 24px;
+    }
+    .font-display {
+      font-family: 'Lexend Mega', sans-serif;
+    }
+    /* Neo-Brutalist Hard Edge Shadows */
+    .brutal-box {
+      border: 3.5px solid #000000;
+      box-shadow: 6px 6px 0px #000000;
+      transition: all 0.15s ease-in-out;
+    }
+    .brutal-box:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 8px 8px 0px #000000;
+    }
+    .brutal-box-lg {
+      border: 4px solid #000000;
+      box-shadow: 10px 10px 0px #000000;
+    }
+    .brutal-btn {
+      border: 3px solid #000000;
+      box-shadow: 4px 4px 0px #000000;
+      transition: all 0.1s ease;
+    }
+    .brutal-btn:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0px #000000;
+    }
+    .brutal-btn:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0px #000000;
     }
   </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen overflow-y-auto selection:bg-amber-500 selection:text-slate-950">
+<body class="text-black min-h-screen overflow-y-auto selection:bg-black selection:text-yellow-300">
 
-  <!-- BACKGROUND GLOW EFFECTS -->
-  <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-    <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-amber-500/10 blur-[130px] rounded-full"></div>
-    <div class="absolute top-[45%] right-0 w-[500px] h-[350px] bg-orange-600/10 blur-[120px] rounded-full"></div>
+  <!-- TOP TICKER BAR -->
+  <div class="bg-black text-white font-mono text-xs py-2 px-4 border-b-4 border-black font-bold tracking-wider flex justify-between items-center overflow-x-hidden">
+    <div class="flex items-center gap-4 animate-pulse">
+      <span>⚡ LEVEL UP YOUR SKILLS</span>
+      <span>•</span>
+      <span>GTECH INITIATIVE 2026</span>
+      <span>•</span>
+      <span>PEER-DRIVEN ECOSYSTEM</span>
+      <span>•</span>
+      <span>MBCET #1 ON LEADERBOARD</span>
+    </div>
+    <div class="hidden md:flex gap-4">
+      <span>STATUS: ACTIVE</span>
+      <span>KARMA POOL: 2.5M+</span>
+    </div>
   </div>
 
-  <!-- PUBLIC HEADER (BEFORE LOGIN) -->
-  <header class="sticky top-0 z-50 backdrop-blur-md bg-slate-950/80 border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-      <!-- Logo -->
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-slate-950 font-black text-xl shadow-lg shadow-amber-500/20">
-          µ
-        </div>
-        <span class="text-xl font-bold tracking-tight text-white">µLearn</span>
+  <!-- STICKY RETRO NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white border-b-4 border-black px-4 sm:px-8 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 brutal-btn bg-blue-600 text-white px-3 py-1.5 rounded-lg">
+        <span class="font-display font-black text-2xl tracking-tighter">µlearn™</span>
+        <span class="text-xs bg-black text-yellow-300 px-1.5 py-0.5 rounded font-mono font-bold">a GTech Initiative</span>
       </a>
 
-      <!-- Public Nav Links -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#about" class="hover:text-amber-400 transition">About</a>
-        <a href="#tracks" class="hover:text-amber-400 transition">Interest Groups</a>
-        <a href="#leaderboard" class="hover:text-amber-400 transition">Leaderboard</a>
-        <a href="#community" class="hover:text-amber-400 transition">Community</a>
+      <!-- Original Nav Links -->
+      <nav class="hidden lg:flex items-center gap-6 font-bold text-sm">
+        <a href="#about" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">About</a>
+        <a href="#why" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Why µLearn?</a>
+        <a href="#join" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Be A Part of Us</a>
+        <a href="#theory" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Mentorship</a>
+        <a href="#tracks" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Learning</a>
+        <a href="#leaderboard" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Leaderboard</a>
+        <a href="#docs" class="hover:underline underline-offset-4 decoration-4 decoration-blue-600">Docs</a>
       </nav>
 
-      <!-- Pre-Login Auth Actions -->
+      <!-- CTA Button -->
       <div class="flex items-center gap-3">
-        <a href="#login" class="px-4 py-2 text-sm font-semibold text-slate-200 hover:text-white transition">
-          Sign In
-        </a>
-        <a href="#register" class="px-4 py-2 rounded-xl text-sm font-bold bg-amber-500 hover:bg-amber-400 text-slate-950 shadow-md shadow-amber-500/20 transition">
-          Get Started
+        <a href="#join" class="brutal-btn bg-blue-600 hover:bg-blue-500 text-white font-display font-black text-sm px-6 py-2.5 rounded-lg">
+          Get Started ➔
         </a>
       </div>
     </div>
   </header>
 
   <!-- HERO SECTION -->
-  <section class="pt-24 pb-20 px-4 sm:px-6 lg:px-8 text-center max-w-5xl mx-auto">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-semibold mb-6">
-      <i class="fa-solid fa-sparkles"></i> Kerala's Largest Tech Learning Ecosystem
-    </div>
-
-    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight mb-6">
-      Learn in Public. <br />
-      Build Cool Projects. <br />
-      <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">
-        Earn Real Karma.
-      </span>
-    </h1>
-
-    <p class="text-lg text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed">
-      A peer-to-peer student network bridging the gap between college curricula and global tech careers through micro-tasks, interest groups, and transparent leaderboards.
-    </p>
-
-    <!-- Guest Action CTAs -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-      <a href="#register" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-base shadow-xl shadow-amber-500/20 transition flex items-center justify-center gap-2">
-        <i class="fa-solid fa-user-plus"></i> Join µLearn Free
-      </a>
-      <a href="#leaderboard" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-white/15 hover:border-amber-500/40 text-slate-300 hover:text-white font-semibold text-base transition flex items-center justify-center gap-2">
-        <i class="fa-solid fa-trophy text-amber-400"></i> Explore Leaderboards
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-14 text-center">
+    
+    <!-- Theory Pill Badge -->
+    <div class="inline-block mb-6">
+      <a href="#theory" class="brutal-btn bg-white hover:bg-cyan-200 text-black font-bold text-xs sm:text-sm px-4 py-2 rounded-full inline-flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-blue-600 animate-ping"></span>
+        <span>Backed by Self–Determination Theory — Deci & Ryan</span>
+        <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
 
-    <!-- Quick Stats -->
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 p-6 rounded-2xl bg-slate-900/60 border border-white/10 backdrop-blur-md">
-      <div>
-        <p class="text-3xl font-extrabold text-white">50K+</p>
-        <p class="text-xs text-slate-400 font-medium mt-1">Student Learners</p>
+    <!-- Main Headline -->
+    <div class="brutal-box bg-white p-8 sm:p-12 rounded-3xl mb-8 relative">
+      <div class="absolute -top-5 -left-4 brutal-btn bg-pink-500 text-white px-3 py-1 font-mono font-bold text-xs rotate-[-6deg] uppercase">
+        Proof of Work > Degrees
       </div>
-      <div>
-        <p class="text-3xl font-extrabold text-white">150+</p>
-        <p class="text-xs text-slate-400 font-medium mt-1">Campus Chapters</p>
+      <div class="absolute -top-5 -right-4 brutal-btn bg-emerald-400 text-black px-3 py-1 font-mono font-bold text-xs rotate-[8deg] uppercase">
+        100% Student-Led
       </div>
-      <div>
-        <p class="text-3xl font-extrabold text-white">2.5M+</p>
-        <p class="text-xs text-slate-400 font-medium mt-1">Karma Awarded</p>
+
+      <h1 class="font-display text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-black leading-none mb-6">
+        Your Ultimate Gateway <br class="hidden sm:inline"/>
+        to <span class="bg-blue-600 text-white px-4 py-1 inline-block transform -rotate-1 brutal-btn">Peer-Led Growth</span>
+      </h1>
+
+      <p class="text-base sm:text-xl font-medium text-slate-800 max-w-2xl mx-auto">
+        An open community for learners, makers, and innovators. Join micro-groups, build live projects, and unlock proof-of-work achievements.
+      </p>
+    </div>
+
+    <!-- Action Buttons Matching Original Content -->
+    <div class="flex flex-wrap justify-center items-center gap-5 mb-14">
+      <a href="#join" class="brutal-btn bg-blue-600 hover:bg-blue-700 text-white font-display font-black text-base px-8 py-4 rounded-xl flex items-center gap-3">
+        <span>Join µLearn</span>
+        <i class="fa-solid fa-bolt"></i>
+      </a>
+      <a href="#tracks" class="brutal-btn bg-cyan-300 hover:bg-cyan-200 text-black font-display font-black text-base px-8 py-4 rounded-xl flex items-center gap-3">
+        <i class="fa-solid fa-atom text-xl"></i>
+        <span>Explore Quantum Tech Matrix</span>
+      </a>
+    </div>
+
+    <!-- Retro Stats Bar -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-left font-mono">
+      <div class="brutal-box bg-white p-5 rounded-xl">
+        <div class="text-3xl font-black font-display text-blue-600">50K+</div>
+        <div class="text-xs font-bold text-slate-600 mt-1 uppercase">Student Builders</div>
       </div>
-      <div>
-        <p class="text-3xl font-extrabold text-white">30+</p>
-        <p class="text-xs text-slate-400 font-medium mt-1">Interest Groups</p>
+      <div class="brutal-box bg-emerald-300 p-5 rounded-xl">
+        <div class="text-3xl font-black font-display text-black">150+</div>
+        <div class="text-xs font-bold text-slate-800 mt-1 uppercase">College Chapters</div>
+      </div>
+      <div class="brutal-box bg-pink-300 p-5 rounded-xl">
+        <div class="text-3xl font-black font-display text-black">2.5M+</div>
+        <div class="text-xs font-bold text-slate-800 mt-1 uppercase">Karma Awarded</div>
+      </div>
+      <div class="brutal-box bg-orange-300 p-5 rounded-xl">
+        <div class="text-3xl font-black font-display text-black">30+</div>
+        <div class="text-xs font-bold text-slate-800 mt-1 uppercase">Interest Groups</div>
       </div>
     </div>
   </section>
 
-  <!-- HOW IT WORKS SECTION -->
-  <section id="about" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <h2 class="text-3xl font-bold text-white mb-3">How µLearn Works</h2>
-      <p class="text-slate-400 text-sm">Four simple steps to transform your college journey into proof of work.</p>
+  <!-- THEORY CARDS (DECI & RYAN CORE FOUNDATIONS) -->
+  <section id="theory" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-center mb-10">
+      <span class="brutal-btn bg-black text-yellow-300 text-xs font-mono font-black px-3 py-1 uppercase tracking-wider">Scientific Pedagogy</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-black mt-3">Self-Determination Framework</h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/10">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4">1</div>
-        <h3 class="text-lg font-bold text-white mb-2">Create Account</h3>
-        <p class="text-sm text-slate-400">Sign up and affiliate with your college campus chapter.</p>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1 -->
+      <div class="brutal-box bg-white p-6 rounded-2xl">
+        <div class="w-12 h-12 bg-blue-600 text-white rounded-xl brutal-btn flex items-center justify-center text-xl font-black mb-4">
+          01
+        </div>
+        <h3 class="font-display text-xl font-bold mb-2">Autonomy</h3>
+        <p class="text-sm font-medium text-slate-700">
+          Learners take control of their paths. Choose your own interest group, your own pace, and your own project stacks without rigid academic gatekeeping.
+        </p>
       </div>
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/10">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4">2</div>
-        <h3 class="text-lg font-bold text-white mb-2">Pick an Interest</h3>
-        <p class="text-sm text-slate-400">Join domain groups like AI, Web Dev, UI/UX, or IoT.</p>
+
+      <!-- Card 2 -->
+      <div class="brutal-box bg-yellow-200 p-6 rounded-2xl">
+        <div class="w-12 h-12 bg-black text-yellow-300 rounded-xl brutal-btn flex items-center justify-center text-xl font-black mb-4">
+          02
+        </div>
+        <h3 class="font-display text-xl font-bold mb-2">Competence (Karma)</h3>
+        <p class="text-sm font-medium text-slate-700">
+          Demonstrate verifiable skills through micro-tasks. Gain Karma points, climb tier levels, and generate verifiable public proof-of-work badges.
+        </p>
       </div>
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/10">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4">3</div>
-        <h3 class="text-lg font-bold text-white mb-2">Complete Tasks</h3>
-        <p class="text-sm text-slate-400">Build real projects, submit links, and get peer reviews.</p>
+
+      <!-- Card 3 -->
+      <div class="brutal-box bg-pink-200 p-6 rounded-2xl">
+        <div class="w-12 h-12 bg-pink-500 text-white rounded-xl brutal-btn flex items-center justify-center text-xl font-black mb-4">
+          03
+        </div>
+        <h3 class="font-display text-xl font-bold mb-2">Relatedness</h3>
+        <p class="text-sm font-medium text-slate-700">
+          Learn in public alongside thousands of college peers across Kerala. Review each other's code, hack together, and unlock industry mentorship.
+        </p>
       </div>
-      <div class="p-6 rounded-2xl bg-slate-900/40 border border-white/10">
-        <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-400 flex items-center justify-center text-xl font-bold mb-4">4</div>
-        <h3 class="text-lg font-bold text-white mb-2">Climb Rankings</h3>
-        <p class="text-sm text-slate-400">Gain Karma, unlock levels, and showcase your profile to hiring partners.</p>
+
+    </div>
+  </section>
+
+  <!-- QUANTUM TECH MATRIX / TRACKS -->
+  <section id="tracks" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="brutal-box-lg bg-black text-white p-8 sm:p-10 rounded-3xl">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 mb-8">
+        <div>
+          <span class="text-yellow-400 font-mono font-bold text-xs uppercase tracking-widest">// MATRIX EXPLORER</span>
+          <h2 class="font-display text-3xl sm:text-4xl font-black text-white mt-1">Quantum Tech Matrix</h2>
+        </div>
+        <p class="text-slate-400 text-sm max-w-sm">Pick your interest track and start earning Karma from day one.</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 font-mono text-center">
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-yellow-400 hover:text-black transition">
+          <i class="fa-solid fa-code text-2xl mb-2"></i>
+          <div class="font-bold text-xs">Web Dev</div>
+        </div>
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-cyan-400 hover:text-black transition">
+          <i class="fa-solid fa-brain text-2xl mb-2"></i>
+          <div class="font-bold text-xs">AI & ML</div>
+        </div>
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-pink-400 hover:text-black transition">
+          <i class="fa-solid fa-shield-halved text-2xl mb-2"></i>
+          <div class="font-bold text-xs">Cyber Sec</div>
+        </div>
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-emerald-400 hover:text-black transition">
+          <i class="fa-solid fa-microchip text-2xl mb-2"></i>
+          <div class="font-bold text-xs">IoT / Maker</div>
+        </div>
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-purple-400 hover:text-black transition">
+          <i class="fa-solid fa-pen-nib text-2xl mb-2"></i>
+          <div class="font-bold text-xs">UI/UX</div>
+        </div>
+        <div class="bg-slate-900 border-2 border-white p-4 rounded-xl hover:bg-orange-400 hover:text-black transition">
+          <i class="fa-solid fa-cubes text-2xl mb-2"></i>
+          <div class="font-bold text-xs">Web3</div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- LEADERBOARD SECTION (FEATURING MBCET) -->
-  <section id="leaderboard" class="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-white/10">
-    <div class="text-center mb-12">
-      <h2 class="text-3xl font-bold text-white mb-3">Top College Chapters</h2>
-      <p class="text-slate-400 text-sm">Campuses leading peer-driven innovation and task submissions.</p>
+  <!-- LEADERBOARD SECTION (FEATURING MBCET AT RANK #1) -->
+  <section id="leaderboard" class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+    <div class="text-center mb-8">
+      <span class="brutal-btn bg-emerald-300 text-black text-xs font-mono font-black px-3 py-1 uppercase">Hall of Fame</span>
+      <h2 class="font-display text-3xl sm:text-4xl font-black mt-2">Campus Leaderboard</h2>
+      <p class="text-slate-700 text-sm font-medium mt-1">Real-time ranking of the most active learning institutions.</p>
     </div>
 
-    <div class="overflow-x-auto rounded-2xl border border-white/10 bg-slate-900/50">
-      <table class="w-full text-left text-sm">
-        <thead class="bg-slate-900/90 text-xs text-slate-400 border-b border-white/10">
-          <tr>
-            <th class="px-6 py-4">Rank</th>
-            <th class="px-6 py-4">Institution</th>
-            <th class="px-6 py-4">Active Builders</th>
-            <th class="px-6 py-4 text-right">Total Karma</th>
-          </tr>
-        </thead>
-        <tbody class="divide-y divide-white/5">
-          <!-- Rank 1: MBCET -->
-          <tr class="bg-amber-500/10 font-semibold">
-            <td class="px-6 py-4 text-amber-400 flex items-center gap-2 font-bold">
-              <i class="fa-solid fa-crown text-amber-400"></i> #1
-            </td>
-            <td class="px-6 py-4 text-white">
-              Mar Baselios College of Engineering and Technology (MBCET)
-              <span class="block text-xs font-normal text-amber-300">Thiruvananthapuram</span>
-            </td>
-            <td class="px-6 py-4 text-slate-300">1,420</td>
-            <td class="px-6 py-4 text-right font-bold text-amber-400">248,500 ★</td>
-          </tr>
+    <div class="brutal-box bg-white rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left font-mono text-sm border-collapse">
+          <thead>
+            <tr class="bg-black text-white border-b-4 border-black text-xs uppercase font-display">
+              <th class="py-4 px-6">Rank</th>
+              <th class="py-4 px-6">Campus</th>
+              <th class="py-4 px-6">Learners</th>
+              <th class="py-4 px-6 text-right">Karma Points</th>
+              <th class="py-4 px-6 text-center">Badge</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y-2 divide-black">
+            
+            <!-- RANK 1: MBCET -->
+            <tr class="bg-yellow-300 font-bold">
+              <td class="py-4 px-6 text-lg text-black flex items-center gap-2">
+                <span class="brutal-btn bg-black text-yellow-300 px-2 py-0.5 rounded text-xs font-display">#1</span>
+                <i class="fa-solid fa-crown text-amber-600 text-lg"></i>
+              </td>
+              <td class="py-4 px-6 text-black">
+                <span class="font-display font-black text-base">Mar Baselios College of Engineering and Technology (MBCET)</span>
+                <span class="block font-sans text-xs font-semibold text-slate-800">Thiruvananthapuram Chapter</span>
+              </td>
+              <td class="py-4 px-6 text-black font-bold">1,420 Builders</td>
+              <td class="py-4 px-6 text-right font-display font-black text-lg text-black">248,500 ★</td>
+              <td class="py-4 px-6 text-center">
+                <span class="brutal-btn bg-black text-white px-3 py-1 rounded-full text-xs uppercase">Top Chapter</span>
+              </td>
+            </tr>
 
-          <!-- Rank 2 -->
-          <tr>
-            <td class="px-6 py-4 text-slate-400">#2</td>
-            <td class="px-6 py-4 text-white">College of Engineering Trivandrum (CET)</td>
-            <td class="px-6 py-4 text-slate-400">1,280</td>
-            <td class="px-6 py-4 text-right font-medium text-slate-200">215,800 ★</td>
-          </tr>
+            <!-- RANK 2 -->
+            <tr class="bg-white hover:bg-slate-100">
+              <td class="py-4 px-6 font-display font-bold">#2</td>
+              <td class="py-4 px-6">
+                <span class="font-bold">College of Engineering Trivandrum (CET)</span>
+                <span class="block font-sans text-xs text-slate-500">Thiruvananthapuram Chapter</span>
+              </td>
+              <td class="py-4 px-6 text-slate-700">1,280 Builders</td>
+              <td class="py-4 px-6 text-right font-bold">215,800 ★</td>
+              <td class="py-4 px-6 text-center">
+                <span class="font-bold text-xs bg-slate-200 px-2 py-1 rounded">Silver Tier</span>
+              </td>
+            </tr>
 
-          <!-- Rank 3 -->
-          <tr>
-            <td class="px-6 py-4 text-slate-400">#3</td>
-            <td class="px-6 py-4 text-white">Government Engineering College Barton Hill</td>
-            <td class="px-6 py-4 text-slate-400">950</td>
-            <td class="px-6 py-4 text-right font-medium text-slate-200">182,400 ★</td>
-          </tr>
-        </tbody>
-      </table>
+            <!-- RANK 3 -->
+            <tr class="bg-white hover:bg-slate-100">
+              <td class="py-4 px-6 font-display font-bold">#3</td>
+              <td class="py-4 px-6">
+                <span class="font-bold">Government Engineering College Barton Hill</span>
+                <span class="block font-sans text-xs text-slate-500">Thiruvananthapuram Chapter</span>
+              </td>
+              <td class="py-4 px-6 text-slate-700">950 Builders</td>
+              <td class="py-4 px-6 text-right font-bold">182,400 ★</td>
+              <td class="py-4 px-6 text-center">
+                <span class="font-bold text-xs bg-slate-200 px-2 py-1 rounded">Bronze Tier</span>
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </section>
 
-  <!-- CTA / LOGIN BANNER -->
-  <section class="py-16 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <div class="p-10 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-amber-500/30">
-      <h3 class="text-2xl sm:text-3xl font-bold text-white mb-3">Ready to level up your engineering journey?</h3>
-      <p class="text-slate-400 text-sm max-w-md mx-auto mb-8">Create your free profile today, select your college, and begin completing learning challenges.</p>
-      <a href="#register" class="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-sm transition">
-        Sign Up Now
+  <!-- BOTTOM CALL TO ACTION -->
+  <section id="join" class="max-w-4xl mx-auto px-4 sm:px-6 py-16 text-center">
+    <div class="brutal-box-lg bg-pink-300 p-8 sm:p-12 rounded-3xl">
+      <span class="brutal-btn bg-black text-white px-3 py-1 font-mono text-xs uppercase font-bold">Get In The Game</span>
+      <h2 class="font-display text-3xl sm:text-5xl font-black text-black mt-4 mb-4">Start Your µLearn Journey</h2>
+      <p class="text-slate-800 font-medium max-w-md mx-auto mb-8 text-base">
+        Join MBCET and over 150 campuses across Kerala. Build real projects, level up, and earn verifiable Karma.
+      </p>
+      <a href="#" class="brutal-btn bg-blue-600 hover:bg-blue-500 text-white font-display font-black text-lg px-10 py-4 rounded-2xl inline-block">
+        Sign Up With Discord / Email ➔
       </a>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="py-10 border-t border-white/10 text-center text-xs text-slate-500">
-    <p>© 2026 µLearn. All rights reserved. Redesign concept for General Enablement task.</p>
+  <!-- MINIMAL BRUTAL FOOTER -->
+  <footer class="bg-black text-white border-t-4 border-black py-8 px-4 text-center font-mono text-xs">
+    <p class="font-bold text-yellow-300">µLearn™ is a GTech Initiative.</p>
+    <p class="text-slate-400 mt-1">Creative Neo-Brutalist Redesign Concept for #ge-website-redesign submission.</p>
   </footer>
 
 </body>
